@@ -1,0 +1,213 @@
+/* RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;          /* Remove margens padrão de todos os elementos */
+    padding: 0;         /* Remove paddings padrão */
+    box-sizing: border-box; /* Faz padding e border serem incluídos na largura/altura */
+}
+
+body {
+    display: flex;               /* Layout flexível */
+    flex-direction: column;      /* Organiza filhos em coluna */
+    min-height: 100vh;           /* Mínimo 100% da altura da viewport */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+}
+
+/* HEADER PADRÃO PARA TODAS AS PÁGINAS */
+header {
+    display: flex;
+    align-items: center;         /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaço entre os itens */
+    padding: 10px 20px;         /* Espaçamento interno */
+    background-color: rgb(1, 41, 121); /* Cor de fundo azul escuro */
+}
+
+/* LOGOTIPO */
+#logoHeader {
+    display: flex;
+    align-items: center;         /* Alinha itens verticalmente */
+}
+
+#logoHeader h4 {
+    margin-left: 15px;          /* Espaço entre ícone e texto */
+    color: white;               /* Cor do texto */
+    font-size: 1.4rem;         /* Tamanho responsivo */
+    font-weight: 500;           /* Peso da fonte (semibold) */
+}
+
+/* NAVEGAÇÃO PRINCIPAL */
+#navHeader {
+    display: flex;
+    gap: 30px;                  /* Espaçamento entre links */
+}
+
+#navHeader a {
+    color: white;               /* Cor dos links */
+    text-decoration: none;      /* Remove sublinhado */
+    font-size: 1.1rem;          /* Tamanho da fonte */
+    padding: 5px 0;             /* Espaçamento vertical */
+    position: relative;         /* Para pseudo-elementos */
+    transition: all 0.3s ease;  /* Transição suave */
+}
+
+/* EFEITO HOVER NOS LINKS */
+#navHeader a:hover {
+    color: rgb(86, 179, 225);   /* Azul claro ao passar mouse */
+}
+
+#navHeader a:hover::after {
+    content: "";                /* Cria elemento decorativo */
+    position: absolute;
+    width: 100%;               /* Largura total do link */
+    height: 2px;               /* Altura da linha */
+    bottom: 0;                 /* Posiciona na base */
+    left: 0;
+    background: rgb(86, 179, 225); /* Cor da linha */
+}
+
+/* OCULTA LINK DA PÁGINA ATUAL (MATRÍCULAS) */
+body.matriculas-page #navHeader a[href*="matriculas"] {
+    display: none;              /* Remove link ativo do menu */
+}
+
+/* RODAPÉ */
+footer {
+    padding: 15px;
+    background-color: rgb(1, 41, 121); /* Mesma cor do header */
+    color: white;
+    text-align: center;         /* Centraliza texto */
+    margin-top: auto;           /* Empurra para baixo (flex) */
+}
+
+/* ESTILOS DE FORMULÁRIOS */
+form {
+    padding: 20px;
+    background-color: rgb(235, 220, 220); /* Fundo bege claro */
+    display: flex;
+    flex-direction: column;     /* Itens em coluna */
+}
+
+/* ALINHAMENTO DE TEXTO */
+.forgotPassword > p {
+    text-align: end;            /* Alinha à direita */
+}
+
+.register > p {
+    text-align: center;         /* Centraliza texto */
+}
+
+.register {
+    margin-top: 10px;           /* Espaço acima */
+}
+
+/* LAYOUT PRINCIPAL */
+main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35%;          /* Margens assimétricas */
+    margin-right: 30%;
+}
+
+main > h3 {
+    margin-top: 5px;            /* Espaço acima dos títulos */
+}
+
+/* LINK DE REGISTRO */
+#linkRegister {
+    text-decoration: none;      /* Remove sublinhado */
+}
+
+.section-form {
+    margin-top: 10px;           /* Espaço entre seções */
+}
+
+/* FORMULÁRIO DE MATRÍCULA */
+#form-matricula > label, 
+#form-matricula > button {
+    margin-top: 10px;           /* Espaço uniforme */
+}
+
+/* ESTILOS DE TABELA */
+.lista-alunos table {
+    width: 100%;                /* Largura total */
+    border-collapse: collapse;  /* Bordas unificadas */
+    margin: 20px 0;             /* Espaço vertical */
+}
+
+.lista-alunos th, 
+.lista-alunos td {
+    border: 1px solid #ddd;     /* Bordas cinza */
+    padding: 10px;              /* Espaçamento interno */
+    text-align: left;           /* Alinhamento de texto */
+}
+
+.lista-alunos th {
+    background-color: #f2f2f2;  /* Fundo cinza claro para cabeçalho */
+}
+
+/* BOTÕES */
+.btn-submit {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: rgb(0, 60, 180); /* Azul escuro */
+    color: white;
+    border: none;
+    border-radius: 4px;         /* Cantos arredondados */
+    cursor: pointer;            /* Cursor de clique */
+    transition: background-color 0.3s; /* Efeito hover suave */
+}
+
+.btn-submit:hover {
+    background-color: rgb(0, 60, 180); /* Mesma cor (poderia variar) */
+}
+
+/* SELECTS (DROPDOWNS) */
+.form-select {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ddd;     /* Borda sutil */
+    border-radius: 4px;
+    width: 100%;                /* Largura total */
+}
+
+/* MENSAGENS FLASH (FEEDBACK) */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #d4edda;  /* Verde claro */
+    color: #155724;             /* Verde escuro */
+    border: 1px solid #c3e6cb;  /* Borda verde */
+}
+
+.alert-danger {
+    background-color: #f8d7da;  /* Vermelho claro */
+    color: #721c24;             /* Vermelho escuro */
+    border: 1px solid #f5c6cb;  /* Borda vermelha */
+}
+
+/* AJUSTES FINOS DE ALINHAMENTO */
+#logoHeader {
+    align-items: baseline;      /* Alinha pela base do texto */
+}
+
+#logoHeader h4 {
+    position: relative;
+    top: 2px;                   /* Ajuste pixelado fino */
+}
+
+/* CORREÇÃO DE ALTURA PARA PÁGINA DE MATRÍCULAS */
+body.matriculas-page header {
+    padding: 10px 20px;
+    min-height: 56px;           /* Altura consistente */
+    display: flex;
+    align-items: center;
+}
+
+/* GARANTE POSICIONAMENTO CORRETO DO LOGO */
+body.matriculas-page #logoHeader {
+    transform: none !important;      /* Sobrescreve outros estilos */
+    position: static !important;
+}
