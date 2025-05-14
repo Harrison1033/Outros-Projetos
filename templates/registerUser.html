@@ -1,56 +1,92 @@
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento como HTML5 -->
 <html lang="pt-br">
+<!-- Tag raiz do documento, com definição de idioma português do Brasil -->
 <head>
+    <!-- Seção de metadados e recursos do documento -->
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura viewport para responsividade em dispositivos móveis -->
     <title>Cadastros</title>
+    <!-- Título da página exibido na aba do navegador -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- Link para o CSS do Bootstrap (versão 5.3.5) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <!-- Link para o JavaScript do Bootstrap (inclui Popper) -->
     <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Link para folha de estilos personalizada -->
 </head>
 <body>
+    <!-- Corpo do documento HTML -->
     <header>
+        <!-- Cabeçalho da página -->
         <div id="logoHeader">
+            <!-- Container para logo e título -->
             <img src="../static/img/senac.png" alt="logo" width="50px" height="40px">
+            <!-- Imagem do logo do SENAC -->
             <h4>SENAC School</h4>
+            <!-- Título da instituição -->
         </div>
     </header>
     <main>
+        <!-- Conteúdo principal da página -->
         <h3>Cadastre-se</h3>
+        <!-- Título do formulário -->
         <form class="container" method="post" action="{{ url_for('register') }}">
+            <!-- Formulário com classe container do Bootstrap, método POST e ação para rota 'register' -->
             <div class="mb-3">
+              <!-- Grupo de formulário com margem inferior -->
               <label for="exampleInputEmail1" class="form-label">Email</label>
+              <!-- Rótulo do campo de email -->
               <input type="email" class="form-control" name="username" id="exampleInputEmail1" required>              
+              <!-- Campo de entrada para email (obrigatório) -->
             </div>
             <div class="mb-3">
+              <!-- Grupo de formulário com margem inferior -->
               <label for="exampleInputPassword1" class="form-label">Senha</label>
+              <!-- Rótulo do campo de senha -->
               <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
+              <!-- Campo de entrada para senha (obrigatório) -->
             </div>
             <div class="mb-3">
+                <!-- Grupo de formulário com margem inferior -->
                 <label for="exampleInputPassword1" class="form-label">Confirme sua senha</label>
+                <!-- Rótulo do campo de confirmação de senha -->
                 <input type="password" class="form-control" name="confirmPassword" id="exampleInputPassword1" required>
+                <!-- Campo de entrada para confirmação de senha (obrigatório) -->
               </div>
            
             <div class="d-grid gap-2 col-6 mx-auto">
+              <!-- Container para botão com grid responsivo -->
               <button type="submit" class="btn btn-primary">Cadastrar</button>
+              <!-- Botão de submissão do formulário -->
             </div>
            
-            
         </form>
         {% with messages = get_flashed_messages(with_categories=true) %}
+        <!-- Início do bloco Jinja2 para mensagens flash (com categorias) -->
         {% if messages %}
+        <!-- Condicional para verificar se há mensagens -->
         <div class="mb-3">
+          <!-- Container com margem inferior -->
           {% for category, message in messages %}
+          <!-- Loop pelas mensagens -->
           <div class="alert alert-{{ category }}">
+            <!-- Div de alerta com classe dinâmica baseada na categoria -->
             {{ message }}
+            <!-- Exibição da mensagem -->
           </div>
           {% endfor %}
         </div>
         {% endif %}
         {% endwith %}
+        <!-- Fim do bloco de mensagens flash -->
     </main>
     <footer>
+        <!-- Rodapé da página -->
         <p>Todos os direitos reservados &copy; 2025</p>
+        <!-- Texto de direitos autorais -->
     </footer>
 </body>
 </html>
