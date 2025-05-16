@@ -1,57 +1,99 @@
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento como HTML5 -->
 <html lang="pt-br">
+<!-- Tag raiz do documento, com definição de idioma português do Brasil -->
 <head>
+    <!-- Seção de metadados e recursos do documento -->
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura viewport para responsividade em dispositivos móveis -->
     <title>Faça Login</title>
+    <!-- Título da página exibido na aba do navegador -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- Link para o CSS do Bootstrap (versão 5.3.5) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <!-- Link para o JavaScript do Bootstrap (inclui Popper) -->
     <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Link para folha de estilos personalizada -->
 </head>
-<!--  --------------------------------------------------------------------------------------------------------------------------------------  -->
+<!-- Separador visual (comentário decorativo) -->
 <body>
+    <!-- Corpo do documento HTML -->
     <header>
+      <!-- Cabeçalho da página -->
       <div id="logoHeader">
+        <!-- Container para logo e título -->
         <img src="../static/img/senac.png" alt="logo" width="50px" height="40px">
+        <!-- Imagem do logo do SENAC -->
         <h4>SENAC School</h4>
-    </div>
+        <!-- Título da instituição -->
+      </div>
     </header>
+    
     <main>
+        <!-- Conteúdo principal da página -->
         <h3>Login</h3>
+        <!-- Título da seção de login -->
+        
         <form class="container" method="POST">
+            <!-- Formulário de login com classe container do Bootstrap e método POST -->
             <div class="mb-3">
+              <!-- Grupo de formulário com margem inferior -->
               <label for="exampleInputEmail1" class="form-label">Email</label>
+              <!-- Rótulo do campo de email -->
               <input type="email" class="form-control" name="username" id="exampleInputEmail1" required>              
+              <!-- Campo de entrada para email (obrigatório) -->
             </div>
+            
             <div class="mb-3">
+              <!-- Grupo de formulário com margem inferior -->
               <label for="exampleInputPassword1" class="form-label">Senha</label>
+              <!-- Rótulo do campo de senha -->
               <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
+              <!-- Campo de entrada para senha (obrigatório) -->
             </div>
+            
             <div class="forgotPassword">
+              <!-- Seção para recuperação de senha -->
               <p>Esqueceu sua Senha?</p>
+              <!-- Texto/link para recuperação de senha (sem link implementado) -->
             </div>
+            
             <div class="d-grid gap-2 col-6 mx-auto">
+              <!-- Container para botão com grid responsivo -->
               <button type="submit" class="btn btn-primary">Login</button>
+              <!-- Botão de submissão do formulário -->
             </div>
            
             <div class="register">
+              <!-- Seção para cadastro de novos usuários -->
               <p>Não possui uma conta? <strong> <a id="linkRegister" href="{{ url_for('moveRegister') }}">Criar conta!</a> </strong></p> 
+              <!-- Link para página de registro usando Flask url_for -->
             </div>
+            
+            <!-- Bloco para exibir mensagens flash -->
             {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            <div class="mb-3">
-              {% for category, message in messages %}
-              <div class="alert alert-{{ category }}">
-                {{ message }}
-              </div>
-              {% endfor %}
-            </div>
-            {% endif %}
+                {% if messages %}
+                <div class="mb-3">
+                  <!-- Container para mensagens com margem inferior -->
+                  {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    <!-- Div de alerta com classe dinâmica baseada na categoria -->
+                    {{ message }}
+                    <!-- Exibição da mensagem -->
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endif %}
             {% endwith %}
           </form>
     </main>
+    
     <footer>
+        <!-- Rodapé da página -->
         <p>Todos os direitos reservados &copy; 2025</p>
+        <!-- Texto de direitos autorais -->
     </footer>
 </body>
 </html>
