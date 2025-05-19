@@ -1,59 +1,96 @@
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento como HTML5 -->
 <html lang="pt-br">
+<!-- Tag raiz do documento, com definição de idioma português do Brasil -->
 <head>
+    <!-- Seção de metadados e recursos do documento -->
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura viewport para responsividade em dispositivos móveis -->
     <title>Alunos</title>
+    <!-- Título da página exibido na aba do navegador -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- Link para o CSS do Bootstrap (versão 5.3.5) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <!-- Link para o JavaScript do Bootstrap (inclui Popper) -->
     <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Link para folha de estilos personalizada -->
 </head>
 <body>
+    <!-- Corpo do documento HTML -->
     <header>
+        <!-- Cabeçalho da página -->
         <div id="logoHeader">
+            <!-- Container para logo e título -->
             <img src="../static/img/senac.png" alt="logo" width="50px" height="40px">
+            <!-- Imagem do logo do SENAC -->
             <h4>SENAC School</h4>
+            <!-- Título da instituição -->
         </div>
         
         <nav id="navHeader" class="nav">
+            <!-- Barra de navegação -->
             <a class="nav-link" href="{{url_for('matriculas')}}">Matriculas</a>
+            <!-- Link para página de matrículas -->
             <a class="nav-link" href="{{url_for('createCurso')}}">Cursos</a>
+            <!-- Link para página de cursos -->
             <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+            <!-- Link para logout -->
         </nav>
     </header>
+    
     <main>
+        <!-- Conteúdo principal da página -->
         <h3>Cadastrar Aluno</h3>
+        <!-- Título da seção de cadastro -->
+        
         <form class="container" method="post" action="{{url_for('insertAluno')}}">
+            <!-- Formulário com classe container do Bootstrap, método POST e ação para rota 'insertAluno' -->
             <div class="mb-3">
+              <!-- Grupo de formulário com margem inferior -->
               <label for="exampleInputName" class="form-label">Nome</label>
+              <!-- Rótulo do campo de nome -->
               <input type="text" class="form-control" name="nome" id="exampleInputName" required>              
+              <!-- Campo de entrada para nome (obrigatório) -->
             </div>
 
             <div class="mb-3">
+              <!-- Grupo de formulário com margem inferior -->
               <label for="exampleInputPassword1" class="form-label">Senha</label>
+              <!-- Rótulo do campo de senha -->
               <input type="password" class="form-control" name="senha" id="exampleInputPassword1" required>
+              <!-- Campo de entrada para senha (obrigatório) -->
             </div>
 
             <div class="mb-3">
+                <!-- Grupo de formulário com margem inferior -->
                 <label for="exampleInputDate" class="form-label">Data Nascimento</label>
+                <!-- Rótulo do campo de data de nascimento -->
                 <input type="date" class="form-control" name="dataNascimento" id="exampleInputDate" required>
+                <!-- Campo de entrada para data (obrigatório) -->
               </div>
 
               <div class="mb-3">
+                <!-- Grupo de formulário com margem inferior -->
                 <label for="exampleInputTel" class="form-label">WhatsApp</label>
+                <!-- Rótulo do campo de WhatsApp -->
                 <input type="tel" class="form-control" name="whatsapp" id="exampleInputTel" required>
+                <!-- Campo de entrada para telefone (obrigatório) -->
               </div>
 
-           
             <div class="d-grid gap-2 col-6 mx-auto">
+              <!-- Container para botão com grid responsivo -->
               <button type="submit" class="btn btn-primary">Cadastrar</button>
+              <!-- Botão de submissão do formulário -->
             </div>
-           
-           
           </form>
     </main>
+    
     <footer>
+        <!-- Rodapé da página -->
         <p>Todos os direitos reservados &copy; 2025</p>
+        <!-- Texto de direitos autorais -->
     </footer>
 </body>
 </html>
